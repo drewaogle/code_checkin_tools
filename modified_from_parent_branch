@@ -1,0 +1,12 @@
+#!/bin/bash
+commit_range=$(git rev-list --simplify-by-decoration -2 HEAD)
+top=$(echo "${commit_range}" | head -1)
+bottom=$(echo "${commit_range}" |tail -1)
+#echo "HEAD is $top, branch point is $bottom"
+# gives us each commit and the files added or modified, but human readable.
+#git log --decorate --pretty=oneline --reverse --name-status ${bottom}..${top}
+# this outputs only the filenames. We then get only the unique names, and remove empty lines. - but will have files that were deleted!
+#files=$(git log --pretty=format:'' --name-only ${bottom}..${top}|sort|uniq| sed -r '/^\s*$/d')
+
+files=$(git diff --name-only ${bottom} ${top})
+echo "${files}"
