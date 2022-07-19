@@ -1,4 +1,4 @@
 #!/bin/bash
-files=$(${HOME}/bin/modified_from_parent_branch)
+files=$(env modified_from_parent_branch)
 echo "Running on Files: ${files}"
 autopep8 --recursive --in-place --aggressive --aggressive --ignore "E251,E241,E221" ${files}
