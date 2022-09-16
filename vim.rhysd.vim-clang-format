@@ -1,0 +1,5 @@
+" Vim-Plug initilization for rhysd/vim-clang-format
+" formatting for clang
+
+Plug 'rhysd/vim-clang-format'
+

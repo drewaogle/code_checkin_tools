@@ -1,0 +1,4 @@
+#!/bin/bash
+files=$(modified_from_parent_branch| grep -E ".*\.((hpp)|c|(cc)|h|(proto))$")
+echo "Running on Files: ${files}"
+clang-format --fallback-style=Google -i  ${files}
